@@ -1,0 +1,55 @@
+.college-details-container {
+  max-height: 80vh; /* Set a maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Add some padding for aesthetics */
+  border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  margin: 20px; /* Optional: Add margin for spacing */
+  border-radius: 8px; /* Rounded corners for the container */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.college-details-container h2 {
+  font-size: 28px;
+  margin-bottom: 15px; /* Reduced bottom margin */
+  color: #004d99; /* Change header color to match strong elements */
+}
+
+.college-details-container .details {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background: #ffffff; /* Change background to white for better contrast */
+  margin-bottom: 20px;
+  line-height: 1.6; /* Adjusted line height for readability */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.college-details-container p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 12px 0; /* Increased top and bottom margin for spacing */
+}
+
+.college-details-container p strong {
+  color: #004d99; /* Maintain deep blue for strong elements */
+}
+
+.college-details-container .button {
+  display: inline-block; /* Ensure button displays correctly */
+  background-color: #004d99; /* Deep blue */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 10px; /* Add some space above the button */
+}
+
+.college-details-container .button:hover {
+  background-color: #003366; /* Darker blue on hover */
+  transform: scale(1.05);
+}

@@ -1,0 +1,50 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f9; /* Soft light grey background */
+  color: #333; /* Dark text color for contrast */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222; /* Darker text color for headings */
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #0056b3; /* Cool blue for links */
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ff6f61; /* Warm coral on hover */
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+input, select {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  width: calc(100% - 24px);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff6f61; /* Highlight on focus */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

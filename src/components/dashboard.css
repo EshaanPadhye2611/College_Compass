@@ -1,0 +1,52 @@
+/* dashboard.css */
+
+.dashboard-container {
+    background-image: url('./bg1.jpg'); /* Set your background image */
+    background-size: 70% auto; /* Adjust width to 70% and maintain aspect ratio */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    position: relative; /* Allow positioning of children */
+    color: white; /* Change text color to white for better contrast */
+}
+
+/* Dark overlay to enhance text visibility */
+.dashboard-container::before {
+    content: ""; /* Creates a pseudo-element */
+    position: absolute; /* Position it absolutely to cover the entire container */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with some transparency */
+    z-index: 0; /* Set a lower z-index to keep it behind content */
+}
+
+.content-container {
+    text-align: center; /* Center the text */
+    position: relative; /* Allow positioning of the logo */
+    z-index: 1; /* Ensure content is above the background */
+}
+
+.logo {
+    width: 190px; /* Adjust width as needed */
+    margin-bottom: 20px; /* Space below the logo */
+}
+
+h1 {
+    position: relative;
+    bottom: 40px;
+    left: 30px; /* Adjust as needed for spacing */
+    font-weight: bold; /* Make the text bold */
+    font-size: 60px; /* Font size for the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add shadow for better readability */
+}
+
+p {
+    margin: 0; /* Reset default margin */
+    padding: 10px; /* Add some padding for better spacing */
+    font-size: 20px; /* Optional: Font size for any paragraph text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: Shadow for text */
+}
