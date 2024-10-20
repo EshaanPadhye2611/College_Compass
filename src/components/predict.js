@@ -68,7 +68,7 @@ function Predict({ onBookmark }) {  // Accept onBookmark as a prop
   return (
     <div className="predict-container">
       <img src={logo} alt="Logo" className="logo" />
-      <h2 className="predict-title">Predict your rank</h2>
+      <h2 className="predict-title">Predict your College</h2>
       <div className="predict-form">
         <label htmlFor="percentile">Enter Your Percentile:</label>
         <input

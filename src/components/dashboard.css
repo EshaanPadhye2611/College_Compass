@@ -14,6 +14,7 @@
 
 /* Dark overlay to enhance text visibility */
 .dashboard-container::before {
+    width: 100%;
     content: ""; /* Creates a pseudo-element */
     position: absolute; /* Position it absolutely to cover the entire container */
     top: 0; /* Align to the top */
@@ -30,23 +31,135 @@
     z-index: 1; /* Ensure content is above the background */
 }
 
-.logo {
-    width: 190px; /* Adjust width as needed */
-    margin-bottom: 20px; /* Space below the logo */
-}
 
-h1 {
-    position: relative;
-    bottom: 40px;
+
+/* dashboard.css */
+
+.animated-welcome {
+    position: relative; /* Keep the text positioned relatively */
+    bottom: 40px; /* Adjust as needed for spacing */
     left: 30px; /* Adjust as needed for spacing */
     font-weight: bold; /* Make the text bold */
     font-size: 60px; /* Font size for the heading */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add shadow for better readability */
+    display: inline-block; /* Ensures the text is in line with the logo */
 }
+
+/* Additional styles for the typing animation */
+.animated-welcome {
+    overflow: hidden; /* Ensures the text is hidden as it's typed */
+    white-space: nowrap; /* Prevents text from wrapping */
+    border-right: 3px solid white; /* Creates a blinking cursor */
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    75% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+/* dashboard.css */
+
+/* Existing styles remain unchanged... */
+
+/* Style for the secondary message */
+/* dashboard.css */
+
+/* Existing styles remain unchanged... */
+
+/* Style for the secondary message */
+.sub-message {
+    position: relative;
+    bottom: 50px; 
+    left: 15px; /* Allow for position adjustments */
+    font-size: 30px; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;/* Smaller font size for the sub-message */
+    color: #ffffff; /* White text color */
+    /* Make text bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional shadow for readability */
+    opacity: 0; /* Initially hidden for the fade-in effect */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    animation-delay: 5s; /* Start after 4s of typing + 1s for fade-in */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+
 
 p {
     margin: 0; /* Reset default margin */
     padding: 10px; /* Add some padding for better spacing */
     font-size: 20px; /* Optional: Font size for any paragraph text */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Optional: Shadow for text */
+}
+/* Button Styles */
+.navigate-button {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: bold; /* Font size for the button text */
+    background-color:black; /* Bootstrap primary color */
+    color: white; /* Button text color */
+    /* Remove border */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions for background, transform, and shadow */
+    opacity: 0; /* Initially hidden for the fade-in effect */
+    animation: fadeInButton 0.5s forwards; /* Fade-in animation for the button */
+    animation-delay: 6s; /* Delay before the button appears (after sub-message) */
+}
+
+/* Button Hover Effect */
+.navigate-button:hover {
+    background-color: #4A4947; /* Darker shade on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
+
+/* Fade-in animation for the button */
+@keyframes fadeInButton {
+    from {
+        opacity: 0; /* Start invisible */
+        transform: translateY(10px); /* Start slightly lower */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* End at original position */
+    }
+}
+.button-icon {
+    width: 30px; /* Set a width for the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between the icon and text */
+    vertical-align: middle; /* Align the icon with the text */
 }

@@ -1,8 +1,8 @@
-// App.js
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/nav_bar';
 import Dashboard from './components/dashboard';
+import Search from './components/Seacrh'; // Import the Search component
 import CollegeDetails from './components/college_details';
 import Bookmark from './components/bookmark';
 import Predict from './components/predict';
@@ -25,6 +25,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/search" element={<Search />} /> {/* New route for Search */}
         <Route path="/college-info/:collegeName" element={<CollegeDetails />} />
         <Route path="/bookmarks" element={
           <Bookmark 

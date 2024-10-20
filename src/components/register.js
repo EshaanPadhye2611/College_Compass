@@ -60,7 +60,7 @@ function Register() {
       <form onSubmit={handleSubmit}>
         <div className="form-columns">
           <div className="column">
-            <input type="text" name="name" placeholder="Name" onChange={handleChange} className="input-field" required />
+           
             <input type="email" name="email" placeholder="Email" onChange={handleChange} className="input-field" required />
             <input type="password" name="password" placeholder="Password" onChange={handleChange} className="input-field" required />
             <input type="number" name="percentile" placeholder="Percentile" onChange={handleChange} className="input-field" required />

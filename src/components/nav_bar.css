@@ -1,10 +1,12 @@
 /* src/components/nav_bar.css */
 
 .navbar {
+  position: relative;
+  bottom: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 20px;
+  padding: 20px 20px 30px;
   background-color: black; /* Blue background color for the navbar */
 }
 
@@ -15,7 +17,8 @@
 
 .navbar-title {
   position: relative;
-  top: 5px;
+  top:11px ;
+  bottom: 3px;
   font-size: 28px;
   font-weight: bold;
   color: #ffffff; /* White text color */
@@ -31,7 +34,7 @@
 
 .navbar-links {
   position: relative;
-  top: 4px;
+  top: 9px;
   display: flex;
   gap: 20px; /* Space between links */
 }

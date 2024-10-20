@@ -1,31 +1,41 @@
 .bookmark-container {
-  max-height: 80vh; /* Set a maximum height for the container */
+  width: 100%;
+  max-height: 120vh; /* Set a maximum height for the container */
   overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Optional: Add a border for clarity */
+  border: 1px solid #ccc; /* Add a border for clarity */
   border-radius: 8px; /* Rounded corners */
-  background-color: #ffffff; /* Optional: White background for contrast */
+  background-color: #D2E0FB; /* Background color */
   padding: 20px; /* Add padding */
 }
 
-.college-item {
-  border: 2px solid #333;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px;
-  background-color: #f9f9f9;
+.college-table {
   width: 100%;
-  max-width: 600px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.college-item h3 {
-  margin-top: 0;
+.college-table th, 
+.college-table td {
+  padding: 12px 15px;
+  border: 1px solid #333; /* Border for each cell */
+  text-align: center;
+  background-color: #f9f9f9; /* Background color for cells */
 }
 
-.college-item button {
-  margin-right: 10px;
+.college-table th {
+  background-color: #004d99; /* Header background color */
+  color: #ffffff; /* Header text color */
+  font-weight: bold;
+}
+
+.college-table tr:nth-child(even) {
+  background-color: #e7f0ff; /* Alternating row background color */
+}
+
+.college-table button {
   padding: 8px 16px;
   border: none;
+  margin-right: 10px;
   border-radius: 4px;
   cursor: pointer;
   background-color: #004d99; /* Button background color */
@@ -33,7 +43,7 @@
   transition: background-color 0.3s, transform 0.3s; /* Transition effects */
 }
 
-.college-item button:hover {
+.college-table button:hover {
   background-color: #003366; /* Darker shade on hover */
   transform: scale(1.05); /* Slight scale effect on hover */
   opacity: 0.8; /* Reduce opacity on hover */

@@ -33,6 +33,7 @@ function Navbar() {
         
         <Link to="/bookmarks">Bookmarks</Link>
         <Link to="/predict">Predict</Link>
+        
       </div>
     </nav>
   );

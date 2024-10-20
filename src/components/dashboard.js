@@ -1,15 +1,24 @@
 import React from 'react';
-import logo from './logo.svg'; // Import the logo image
 import './dashboard.css';
 import Navbar from './nav_bar'; 
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import symbol from './symbol.svg'; // Import the SVG symbol
 
 function Dashboard() {
   console.log('Dashboard is rendering');
   return (
     <div className="dashboard-container">
       <div className="content-container">
-        <img src={logo} alt="College Compass Logo" className="logo" /> {/* Logo here */}
-        <h1>Welcome to College Compass</h1>
+        <h1 className="animated-welcome">Welcome to College Compass</h1>
+        <p className="sub-message">Start navigating your career choice</p> {/* Sub-message here */}
+        
+        {/* Button to navigate to Search.js */}
+        <Link to="/search">
+          <button className="navigate-button">
+            <img src={symbol} alt="Navigate Icon" className="button-icon" /> {/* SVG symbol */}
+            Navigate Here
+          </button>
+        </Link>
       </div>
     </div>
   );
