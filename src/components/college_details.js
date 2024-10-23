@@ -91,36 +91,47 @@ function CollegeDetails() {
     return <p>College not found.</p>;
   }
 
-  const websiteLink = collegeInfo['Website']?.trim();
   const link = collegeInfo['Link']?.trim();
+  const websiteLink = collegeInfo['Website ']?.trim();
+  const imageUrl = collegeInfo['Image']?.trim(); // Get the image URL from the CSV
 
   return (
     <div className="college-details-container" ref={detailsRef}>
-      <h2>{collegeInfo['College Name']}</h2>
-      <p><strong>Genders Accepted:</strong> {collegeInfo['Genders Accepted']}</p>
-      <p><strong>Campus Size:</strong> {collegeInfo['Campus Size']}</p>
-      <p><strong>Total Student Enrollments:</strong> {collegeInfo['Total Student Enrollments']}</p>
-      <p><strong>Total Faculty:</strong> {collegeInfo['Total Faculty']}</p>
-      <p><strong>Established Year:</strong> {collegeInfo['Established Year']}</p>
-      <p><strong>Rating:</strong> {collegeInfo['Rating']}</p>
-      <p><strong>University:</strong> {collegeInfo['University']}</p>
-      <p><strong>Courses:</strong> {collegeInfo['Courses']}</p>
-      <p><strong>Facilities:</strong> {collegeInfo['Facilities']}</p>
-      <p><strong>City:</strong> {collegeInfo['City']}</p>
-      <p><strong>State:</strong> {collegeInfo['State']}</p>
-      <p><strong>Country:</strong> {collegeInfo['Country']}</p>
-      <p><strong>College Type:</strong> {collegeInfo['College Type']}</p>
-      <p><strong>Average Fees:</strong> {collegeInfo['Average Fees']}</p>
-      <p><strong>Placement:</strong> {collegeInfo['Placement']}</p> 
-      <p><strong>Location:</strong> {collegeInfo['Location']}</p> 
+      <div className="college-details-content">
+        <div className="college-info">
+          <h2>{collegeInfo['College Name']}</h2>
+          <p><strong>Genders Accepted:</strong> {collegeInfo['Genders Accepted']}</p>
+          <p><strong>Campus Size:</strong> {collegeInfo['Campus Size']}</p>
+          <p><strong>Total Student Enrollments:</strong> {collegeInfo['Total Student Enrollments']}</p>
+          <p><strong>Total Faculty:</strong> {collegeInfo['Total Faculty']}</p>
+          <p><strong>Established Year:</strong> {collegeInfo['Established Year']}</p>
+          <p><strong>Rating:</strong> {collegeInfo['Rating']}</p>
+          <p><strong>University:</strong> {collegeInfo['University']}</p>
+          <p><strong>Courses:</strong> {collegeInfo['Courses']}</p>
+          <p><strong>Facilities:</strong> {collegeInfo['Facilities']}</p>
+          <p><strong>City:</strong> {collegeInfo['City']}</p>
+          <p><strong>State:</strong> {collegeInfo['State']}</p>
+          <p><strong>Country:</strong> {collegeInfo['Country']}</p>
+          <p><strong>College Type:</strong> {collegeInfo['College Type']}</p>
+          <p><strong>Average Fees:</strong> {collegeInfo['Average Fees']}</p>
+          <p><strong>Placement:</strong> {collegeInfo['Placement']}</p>
+          <p><strong>Location:</strong> {collegeInfo['Location']}</p>
 
-      {link && (
-        <p><strong>Link:</strong> <a href={link} target="_blank" rel="noopener noreferrer">{link}</a></p>
-      )}
+          {link && (
+            <p><strong>Link:</strong> <a href={link} target="_blank" rel="noopener noreferrer">{link}</a></p>
+          )}
 
-      {websiteLink && (
-        <p><strong>Website:</strong> <a href={websiteLink} target="_blank" rel="noopener noreferrer">{websiteLink}</a></p>
-      )}
+          {websiteLink && (
+            <p><strong>College Website:</strong> <a href={websiteLink} target="_blank" rel="noopener noreferrer">{websiteLink}</a></p>
+          )}
+        </div>
+
+        {imageUrl && (
+          <div className="college-image">
+            <img src={imageUrl} alt={`${collegeInfo['College Name']} image`} />
+          </div>
+        )}
+      </div>
 
       <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
         <GoogleMap
