@@ -26,15 +26,19 @@
 }
 
 .college-image {
-  max-width: 200px; /* Set a maximum width for the image */
+  max-width: 600px; /* Set a maximum width for the image */
 }
 
 .college-image img {
-  width: 100%; /* Make the image responsive */
+  width: 100%;
+   /* Make the image responsive */
   border-radius: 8px; /* Rounded corners for the image */
 }
 
 .college-details-container h2 {
+  position: relative;
+  bottom: 20px;
+  left: 30px;
   font-size: 28px;
   margin-bottom: 15px; /* Reduced bottom margin */
   color: #004d99; /* Change header color to match strong elements */

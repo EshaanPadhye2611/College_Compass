@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+College-Compass
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+College-Compass is a demo web application designed to help students find the best engineering colleges in Maharashtra based on their MHT CET or JEE Main percentile. The website allows users to explore college options by considering various factors like percentile, seat type (EWS, Open, OBC, etc.), branch preferences, and more.
 
-## Available Scripts
+Key Features:
 
-In the project directory, you can run:
+College Prediction: Based on MHT CET or JEE Main percentile and seat type, students can predict which engineering colleges they are eligible for.
+Branch Selection: Users can filter college results based on preferred engineering branches such as Computer Science, Mechanical, Civil, and others.
+In-depth College Information: Students can view detailed information about each college, including:
+Average package offered to students
+Available facilities
+College reviews
+Different branches and seat distribution
+Bookmark Colleges: Users can bookmark their favorite colleges for quick access later.
+Search by Preference: Direct search functionality to find colleges based on custom preferences, such as city, facilities, or branch.
+This project is currently a demo website that showcases core functionality, allowing students to navigate through colleges and explore their options. Future updates will add more comprehensive features.
 
-### `npm start`
+Tech Stack:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend: HTML, CSS, JavaScript, React.js
+Backend: Firebase for real-time database and storage
+Hosting: Firebase

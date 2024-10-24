@@ -21,43 +21,45 @@ function CollegeDetails() {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [hostels, setHostels] = useState([]); // State to hold hostels
+  const [matchedHostels, setMatchedHostels] = useState([]); // State to hold matched hostels
+  const [showHostels, setShowHostels] = useState(false); // State to control hostel display
   const detailsRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        Papa.parse('/info.csv', {
-          download: true,
-          header: true,
-          skipEmptyLines: true,
-          complete: (results) => {
-            const formattedCollegeName = decodeURIComponent(collegeName.trim());
-            const collegeNames = results.data.map(college => college['College Name'].trim());
-            const bestMatch = stringSimilarity.findBestMatch(formattedCollegeName, collegeNames);
-            
-            if (bestMatch.bestMatch.rating > 0.5) {
-              const matchedCollege = results.data[bestMatch.bestMatchIndex];
-              setCollegeInfo(matchedCollege);
-              
-              const lat = parseFloat(matchedCollege['Latitude']);
-              const lng = parseFloat(matchedCollege['Longitude']);
-              
-              if (!isNaN(lat) && !isNaN(lng)) {
-                setMapCenter({ lat, lng });
-              } else {
-                console.warn('Invalid coordinates:', lat, lng);
-              }
-            } else {
-              setCollegeInfo(null);
-            }
-            setLoading(false);
-          },
-          error: (error) => {
-            console.error('Error reading the CSV file:', error);
-            setError('Error reading the CSV file. Please ensure the file is correctly formatted.');
-            setLoading(false);
-          }
+        // Parse college data
+        const collegeData = await new Promise((resolve, reject) => {
+          Papa.parse('/info.csv', {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: (results) => resolve(results.data),
+            error: (error) => reject(error),
+          });
         });
+
+        const formattedCollegeName = decodeURIComponent(collegeName.trim());
+        const collegeNames = collegeData.map(college => college['College Name'].trim());
+        const bestMatch = stringSimilarity.findBestMatch(formattedCollegeName, collegeNames);
+        
+        if (bestMatch.bestMatch.rating > 0.5) {
+          const matchedCollege = collegeData[bestMatch.bestMatchIndex];
+          setCollegeInfo(matchedCollege);
+          
+          const lat = parseFloat(matchedCollege['Latitude']);
+          const lng = parseFloat(matchedCollege['Longitude']);
+          
+          if (!isNaN(lat) && !isNaN(lng)) {
+            setMapCenter({ lat, lng });
+          } else {
+            console.warn('Invalid coordinates:', lat, lng);
+          }
+        } else {
+          setCollegeInfo(null);
+        }
+        setLoading(false);
       } catch (err) {
         console.error('Error fetching data:', err);
         setError('Error fetching data.');
@@ -65,8 +67,42 @@ function CollegeDetails() {
       }
     };
 
+    const fetchHostels = async () => {
+      try {
+        // Parse hostels data
+        const hostelsData = await new Promise((resolve, reject) => {
+          Papa.parse('/hostels.csv', {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: (results) => resolve(results.data),
+            error: (error) => reject(error),
+          });
+        });
+        setHostels(hostelsData);
+      } catch (err) {
+        console.error('Error fetching hostels data:', err);
+      }
+    };
+
     fetchData();
+    fetchHostels();
   }, [collegeName]);
+
+  const handleViewHostels = () => {
+    if (collegeInfo && collegeInfo['City']) {
+      // Filter hostels based on the city of the college
+      const filteredHostels = hostels.filter(
+        (hostel) => hostel.city && hostel.city.trim().toLowerCase() === collegeInfo['City'].trim().toLowerCase()
+      );
+      setMatchedHostels(filteredHostels);
+      setShowHostels(true); // Display the hostels
+    }
+  };
+
+  const handleCloseHostels = () => {
+    setShowHostels(false);
+  };
 
   useEffect(() => {
     const scrollToDetails = () => {
@@ -124,6 +160,8 @@ function CollegeDetails() {
           {websiteLink && (
             <p><strong>College Website:</strong> <a href={websiteLink} target="_blank" rel="noopener noreferrer">{websiteLink}</a></p>
           )}
+          
+          <button onClick={handleViewHostels} className="view-hostels-button">View Hostels</button>
         </div>
 
         {imageUrl && (
@@ -142,6 +180,27 @@ function CollegeDetails() {
           <Marker position={mapCenter} />
         </GoogleMap>
       </LoadScript>
+
+      {showHostels && (
+        <div className="hostel-list">
+          <h3>Hostels in {collegeInfo['City']}</h3>
+          <button onClick={handleCloseHostels} className="close-hostels-button">Close</button>
+          {matchedHostels.length > 0 ? (
+            <ul>
+              {matchedHostels.map((hostel, index) => (
+                <li key={index}>
+                  <h4>{hostel.name}</h4>
+                  <p><strong>Address:</strong> {hostel.address}</p>
+                  <p><strong>Phone:</strong> {hostel.phone}</p>
+                  <p><strong>Email:</strong> {hostel.email}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No hostels found in {collegeInfo['City']}.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
